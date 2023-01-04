@@ -30,9 +30,10 @@ public class Category : Entity
         AddNotifications(contract);
     }
 
-    public void EditInf(string name, bool active)
+    public void EditInf(string name, bool active, string editeBy)
     {
         Active = active;
+        EditeBy= editeBy;
         Name = name;
         Validate();
 
