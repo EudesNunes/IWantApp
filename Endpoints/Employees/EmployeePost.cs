@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
-using static System.Net.WebRequestMethods;
-
-namespace IWantApp.Endpoints.Employees;
+﻿namespace IWantApp.Endpoints.Employees;
 
 public class EmployeePost
 {
