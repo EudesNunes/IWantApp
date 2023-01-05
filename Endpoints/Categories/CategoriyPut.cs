@@ -12,7 +12,7 @@ public class CategoriyPut
     public static string[] Methods => new string[] { HttpMethod.Put.ToString() };
     public static Delegate Handle => Action;
 
-    public static IResult Action([FromRoute]Guid id, HttpContext http, CategoryRequest categoryRequest, ApplicationDbContext context)
+    public async static Task<IResult> Action([FromRoute]Guid id, HttpContext http, CategoryRequest categoryRequest, ApplicationDbContext context)
     {
 
         var userId = http.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
@@ -28,7 +28,7 @@ public class CategoriyPut
             return Results.ValidationProblem(category.Notifications.ConvertToProblemDetails());
         
 
-        context.SaveChanges();
+        await context.SaveChangesAsync();
         return Results.Ok();
     }
 }

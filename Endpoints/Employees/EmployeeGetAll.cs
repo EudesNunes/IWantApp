@@ -10,7 +10,7 @@ public class EmployeeGetAll
     public static Delegate Handle => Action;
 
     [Authorize(Policy = "Employee005Policy")]
-    public static IResult Action(int? page, int? rows, QueryAllUsersWIithClaimName query)
+    public static async Task<IResult> Action(int? page, int? rows, QueryAllUsersWIithClaimName query)
     {
         if (page == null)
             return Results.NotFound("page não declarado");
@@ -19,8 +19,8 @@ public class EmployeeGetAll
         if (rows > 10)
             return Results.NotFound("rows não pode ser maior que 10");
 
-
-        return Results.Ok(query.Execute(page.Value, rows.Value));
+        var result = await query.Execute(page.Value, rows.Value);
+        return Results.Ok(result);
 
     }
 }
