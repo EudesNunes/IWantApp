@@ -1,5 +1,24 @@
 
+using Microsoft.AspNetCore.Diagnostics;
+using Serilog.Sinks.MSSqlServer;
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.UseSerilog((context, configuration) => {
+    configuration
+        .WriteTo.Console()
+        .WriteTo.MSSqlServer(
+            context.Configuration["ConnectionString:IWantDb"],
+            sinkOptions: new MSSqlServerSinkOptions()
+            {
+                AutoCreateSqlTable = true,
+                TableName = "LogAPI"
+            });
+
+});
+
+
 builder.Services.AddSqlServer<ApplicationDbContext>(builder.Configuration["ConnectionString:IWantDb"]);
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -20,8 +39,9 @@ builder.Services.AddAuthorization(options =>
     .Build();
 
     options.AddPolicy("EmployeePolicy", p => p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
-    options.AddPolicy("Employee005Policy", p => p.RequireAuthenticatedUser().RequireClaim("EmployeeCode","005"));
+    options.AddPolicy("Employee005Policy", p => p.RequireAuthenticatedUser().RequireClaim("EmployeeCode", "005"));
 });
+
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -34,7 +54,7 @@ builder.Services.AddAuthentication(x =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ClockSkew =TimeSpan.Zero,
+        ClockSkew = TimeSpan.Zero,
         ValidIssuer = builder.Configuration["JwtBearerTokenSettings:Issuer"],
         ValidAudience = builder.Configuration["JwtBearerTokenSettings:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(
@@ -66,7 +86,23 @@ app.MapMethods(CategoriyPut.Template, CategoriyPut.Methods, CategoriyPut.Handle)
 app.MapMethods(EmployeePost.Template, EmployeePost.Methods, EmployeePost.Handle);
 app.MapMethods(EmployeeGetAll.Template, EmployeeGetAll.Methods, EmployeeGetAll.Handle);
 app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
+app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
+app.MapMethods(ProductGetAll.Template, ProductGetAll.Methods, ProductGetAll.Handle);
 
+app.UseExceptionHandler("/error");
+app.Map("/error", (HttpContext http) =>
+{
+    var error = http.Features.Get<IExceptionHandlerFeature>().Error;
+
+    if (error != null)
+    {
+        if (error is SqlException)
+            return Results.Problem(title: "Database out", statusCode: 500);
+        
+    }
+
+    return Results.Problem(title: "Um erro Ocorreu", statusCode: 500);
+});
 
 app.Run();
 

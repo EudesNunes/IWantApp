@@ -15,6 +15,6 @@ public static class ProblemDetailsExtensions
         var dictionary = new Dictionary<string, string[]>();
         dictionary.Add("Error", error.Select(e => e.Description).ToArray());
         return dictionary;
-                 
+
     }
 }

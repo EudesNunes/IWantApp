@@ -25,6 +25,6 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         //detertima que as strings vai ter no maximo 100 caracteres
         configuration.Properties<string>()
-            .HaveMaxLength(100); 
+            .HaveMaxLength(100);
     }
 }

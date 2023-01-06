@@ -6,9 +6,9 @@ public class EmployeePost
     public static string[] Methods => new string[] { HttpMethod.Post.ToString() };
     public static Delegate Handle => Action;
 
-    public static async Task<IResult> Action(EmployeeRequest employeeRequest, HttpContext http,UserManager<IdentityUser> userManager)
+    public static async Task<IResult> Action(EmployeeRequest employeeRequest, HttpContext http, UserManager<IdentityUser> userManager)
     {
-     
+
         var userId = http.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
         var newUser = new IdentityUser { UserName = employeeRequest.Email, Email = employeeRequest.Email };
         var result = await userManager.CreateAsync(newUser, employeeRequest.Password);

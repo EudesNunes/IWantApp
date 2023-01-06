@@ -31,10 +31,10 @@ public class Category : Entity
     public void EditInf(string name, bool active, string editeBy)
     {
         Active = active;
-        EditeBy= editeBy;
+        EditeBy = editeBy;
         Name = name;
         Validate();
 
-        
+
     }
 }
