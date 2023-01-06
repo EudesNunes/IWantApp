@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Serilog.Sinks.MSSqlServer;
 using Serilog;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -98,7 +99,9 @@ app.Map("/error", (HttpContext http) =>
     {
         if (error is SqlException)
             return Results.Problem(title: "Database out", statusCode: 500);
-        
+        else if(error is BadHttpRequestException)
+            return Results.Problem(title: "Erro para converter dado para outro tipo", statusCode: 500);
+
     }
 
     return Results.Problem(title: "Um erro Ocorreu", statusCode: 500);

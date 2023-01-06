@@ -10,15 +10,17 @@ public class Product : Entity
     public string Description { get;private set; }
     public bool HasStock { get; private set; }
     public bool Active { get; private set; } = true;
+    public decimal Price { get; private set; }
 
     private Product() { }
 
-    public Product(string name, Category category, string description, bool hasStock, string createdBy)
+    public Product(string name, Category category, string description, bool hasStock, decimal price, string createdBy)
     {
         Name = name;
         Category = category;
         Description = description;
         HasStock = hasStock;
+        Price= price;
 
         CreatedBy = createdBy;
         EditeBy = createdBy;
@@ -26,15 +28,17 @@ public class Product : Entity
         EditedOn = DateTime.Now;
 
         Validate();
+        Price = price;
     }
     private void Validate()
     {
         var contract = new Contract<Product>()
             .IsNotNullOrEmpty(Name, "Name", "Name")
             .IsGreaterOrEqualsThan(Name, 3, "Name")
-            .IsNotNull(Category, "Category")
+            .IsNotNull(Category, "Category", "Categoria não foi encontrada")
             .IsNotNullOrEmpty(Description, "Description")
             .IsGreaterOrEqualsThan(Description, 3 ,"Description")
+            .IsGreaterOrEqualsThan(Price, 1 , "Price")
             .IsNotNullOrEmpty(CreatedBy, "CreatedBy")
             .IsNotNullOrEmpty(EditeBy, "EditedBy");        
         AddNotifications(contract);
