@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Diagnostics;
 using Serilog.Sinks.MSSqlServer;
 using Serilog;
 using System.Text.Json;
+using IWantApp.Endpoints.Client;
+using IWantApp.Domain.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -65,6 +67,8 @@ builder.Services.AddAuthentication(x =>
 });
 
 builder.Services.AddScoped<QueryAllUsersWIithClaimName>();
+builder.Services.AddScoped<UserCreator>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -90,6 +94,7 @@ app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
 app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
 app.MapMethods(ProductGetAll.Template, ProductGetAll.Methods, ProductGetAll.Handle);
 app.MapMethods(ProductGetShowCase.Template, ProductGetShowCase.Methods, ProductGetShowCase.Handle);
+app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
 
 app.UseExceptionHandler("/error");
 app.Map("/error", (HttpContext http) =>
