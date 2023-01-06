@@ -8,13 +8,24 @@ public class ProductGetShowCase
 
     [AllowAnonymous]
 
-    public static async Task<IResult> Action(ApplicationDbContext context)
+    public static async Task<IResult> Action(ApplicationDbContext context, int page = 1, int row = 10, string orderBy = "name")
     {
-        var products = await context.Products
-            .Include(p => p.Category)
-            .Where(p => p.HasStock && p.Category.Active)
-            .OrderBy(p => p.Name)
-            .ToListAsync();
+        if (row > 10)
+            return Results.Problem(title: "Row with max 10", statusCode: 400);
+        
+        var queryBase = context.Products.AsNoTracking().Include(p => p.Category)
+            .Where(p => p.HasStock && p.Category.Active);
+
+        if (orderBy == "name")
+            queryBase = queryBase.OrderBy(p => p.Name);
+        else if(orderBy == "price")
+            queryBase = queryBase.OrderBy(p => p.Price);
+        else
+            return Results.Problem(title: "Order only by price or name", statusCode: 400);
+
+        var queryFilter = queryBase.Skip((page -1)* row).Take(row);
+
+        var products = await queryFilter.ToListAsync();
         var results =  products.Select(p => new ProductResponse(p.Name, p.Category.Name, p.Description, p.HasStock, p.Price ,p.Active));
         return Results.Ok(results);
     }
