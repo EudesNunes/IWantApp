@@ -26,7 +26,7 @@ public class ProductGetShowCase
         var queryFilter = queryBase.Skip((page -1)* row).Take(row);
 
         var products = await queryFilter.ToListAsync();
-        var results =  products.Select(p => new ProductResponse(p.Name, p.Category.Name, p.Description, p.HasStock, p.Price ,p.Active));
+        var results =  products.Select(p => new ProductResponse(p.Id,p.Name, p.Category.Name, p.Description, p.HasStock, p.Price ,p.Active));
         return Results.Ok(results);
     }
 }
