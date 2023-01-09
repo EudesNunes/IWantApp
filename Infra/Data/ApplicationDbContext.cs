@@ -31,6 +31,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
            .Property(o => o.ClientId).IsRequired();
         builder.Entity<Order>()
            .Property(o => o.DeliveryAddress).IsRequired();
+        builder.Entity<Order>().Ignore(o => o.Name);//##
         builder.Entity<Order>()
          .HasMany(o => o.Products)
          .WithMany(p => p.Orders)
