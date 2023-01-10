@@ -5,6 +5,7 @@ using Serilog;
 using System.Text.Json;
 using IWantApp.Endpoints.Client;
 using IWantApp.Domain.Users;
+using IWantApp.Endpoints.Relatorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,7 @@ builder.Services.AddAuthorization(options =>
 
     options.AddPolicy("EmployeePolicy", p => p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
     options.AddPolicy("Employee005Policy", p => p.RequireAuthenticatedUser().RequireClaim("EmployeeCode", "005"));
+    options.AddPolicy("Employee111Policy", p => p.RequireAuthenticatedUser().RequireClaim("EmployeeCode", "111"));
     options.AddPolicy("CpfPolicy", p => p.RequireAuthenticatedUser().RequireClaim("Cpf"));
 });
 
@@ -69,6 +71,7 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddScoped<QueryAllUsersWIithClaimName>();
 builder.Services.AddScoped<UserCreator>();
+builder.Services.AddScoped<QueryBestSeller>();
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -98,6 +101,8 @@ app.MapMethods(ProductGetShowCase.Template, ProductGetShowCase.Methods, ProductG
 app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
 app.MapMethods(ClientGet.Template, ClientGet.Methods, ClientGet.Handle);
 app.MapMethods(OrderPost.Template, OrderPost.Methods, OrderPost.Handle);
+app.MapMethods(OrderGet.Template, OrderGet.Methods, OrderGet.Handle);
+app.MapMethods(BestSeller.Template, BestSeller.Methods, BestSeller.Handle);
 
 
 
