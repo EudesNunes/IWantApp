@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "6bfdc609-d42a-4fab-9c49-008b3f87f74f",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25119793"
+	},
+	"item": [
+		{
+			"name": "savecategories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxMkBnbWFpbC5jb20iLCJuYW1laWQiOiI4MzA2YWM1My0xMDZmLTQzMDctOTBiYi05NjFmYTFlNzI1OTEiLCJFbXBsb3llZUNvZGUiOiIwMDUiLCJOYW1lIjoidXNlcjEyIiwibmJmIjoxNjczMDA4MzUyLCJleHAiOjE2NzMwMTAxNTIsImlhdCI6MTY3MzAwODM1MiwiaXNzIjoiSVdhbnRBcHBJc3N1ZXIiLCJhdWQiOiJBdWRpZW5jZSJ9.QBfuukugM99_JT5-K-Lwwr8xhEXAPHaNpnKslzH_vxE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Name\": \"Roupa\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/categories",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save Employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxMkBnbWFpbC5jb20iLCJuYW1laWQiOiI4MzA2YWM1My0xMDZmLTQzMDctOTBiYi05NjFmYTFlNzI1OTEiLCJFbXBsb3llZUNvZGUiOiIwMDUiLCJOYW1lIjoidXNlcjEyIiwibmJmIjoxNjczMDA4MzUyLCJleHAiOjE2NzMwMTAxNTIsImlhdCI6MTY3MzAwODM1MiwiaXNzIjoiSVdhbnRBcHBJc3N1ZXIiLCJhdWQiOiJBdWRpZW5jZSJ9.QBfuukugM99_JT5-K-Lwwr8xhEXAPHaNpnKslzH_vxE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Zé\",\r\n    \"Password\": \"1234\",\r\n    \"Email\": \"jose@gmail.com\",\r\n    \"EmployeeCode\": \"005\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/employees",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save client",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Julio\",\r\n    \"Password\": \"1234\",\r\n    \"Email\": \"julio@gmail.com\",\r\n    \"Cpf\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/clients",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV1ZGVzQGdtYWlsLmNvbSIsIm5hbWVpZCI6IjA3MDBlYTllLTVmYzAtNDRiOS1iMzEwLTliMDQzMjQ5NWVkNCIsIkVtcGxveWVlQ29kZSI6IjAwNSIsIk5hbWUiOiJFdWRlcyIsIkNyZWF0ZWRCeSI6IjgzMDZhYzUzLTEwNmYtNDMwNy05MGJiLTk2MWZhMWU3MjU5MSIsIm5iZiI6MTY3MzAxNTA2MCwiZXhwIjoxNzA0NTUxMDYwLCJpYXQiOjE2NzMwMTUwNjAsImlzcyI6IklXYW50QXBwSXNzdWVyIiwiYXVkIjoiQXVkaWVuY2UifQ.pdPyg_pQobWA2NhIOt9WTApgcRB2PdicU5C2R8SzzO0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Chinelo de dedo\",\r\n    \"description\": \"masculina\",\r\n    \"CategoryId\": \"3b214f34-8c31-43b0-b541-0e15b983176c\",\r\n    \"HasStock\": false,\r\n    \"Price\": 20,\r\n    \"Active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvbWFyaW9AZ21haWwuY29tIiwibmFtZWlkIjoiZjc5YzBkODItOWM3My00ZjU4LWE3NTQtMTZjOGM3ZDA5NjdhIiwiQ3BmIjoiNTYxNDE1NjU1IiwiTmFtZSI6IlJvbWFyaW8iLCJuYmYiOjE2NzMyNzQ2MjYsImV4cCI6MTcwNDgxMDYyNiwiaWF0IjoxNjczMjc0NjI2LCJpc3MiOiJJV2FudEFwcElzc3VlciIsImF1ZCI6IkF1ZGllbmNlIn0.A9uMCcK6AjUeOIcJyCkPHzGsdSPIfRbBO9fOZNvhY2I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ProductIds\": [],\r\n    \"DeliveryAddress\": \"Rua do sertão\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/orders",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"eudes@gmail.com\", \"password\":\"1234\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEmployees  all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV1ZGVzQGdtYWlsLmNvbSIsIm5hbWVpZCI6IjA3MDBlYTllLTVmYzAtNDRiOS1iMzEwLTliMDQzMjQ5NWVkNCIsIkVtcGxveWVlQ29kZSI6IjAwNSIsIk5hbWUiOiJFdWRlcyIsIkNyZWF0ZWRCeSI6IjgzMDZhYzUzLTEwNmYtNDMwNy05MGJiLTk2MWZhMWU3MjU5MSIsIm5iZiI6MTY3MzAwOTY3MywiZXhwIjoxNjczMDExNDczLCJpYXQiOjE2NzMwMDk2NzMsImlzcyI6IklXYW50QXBwSXNzdWVyIiwiYXVkIjoiQXVkaWVuY2UifQ.CDgjv4JoSwDTorCHC0UjRZt-oIHxRcbwn-97KJUPGqk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5120/employee?page=1&rows=10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"employee"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "rows",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Putcategories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV1ZGVzQGdtYWlsLmNvbSIsIm5hbWVpZCI6IjA3MDBlYTllLTVmYzAtNDRiOS1iMzEwLTliMDQzMjQ5NWVkNCIsIkVtcGxveWVlQ29kZSI6IjAwNSIsIk5hbWUiOiJFdWRlcyIsIkNyZWF0ZWRCeSI6IjgzMDZhYzUzLTEwNmYtNDMwNy05MGJiLTk2MWZhMWU3MjU5MSIsIm5iZiI6MTY3MzAwOTY3MywiZXhwIjoxNjczMDExNDczLCJpYXQiOjE2NzMwMDk2NzMsImlzcyI6IklXYW50QXBwSXNzdWVyIiwiYXVkIjoiQXVkaWVuY2UifQ.CDgjv4JoSwDTorCHC0UjRZt-oIHxRcbwn-97KJUPGqk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Roupas\",\r\n \"active\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/categories/3b214f34-8c31-43b0-b541-0e15b983176c",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"categories",
+						"3b214f34-8c31-43b0-b541-0e15b983176c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getcategories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV1ZGVzQGdtYWlsLmNvbSIsIm5hbWVpZCI6IjA3MDBlYTllLTVmYzAtNDRiOS1iMzEwLTliMDQzMjQ5NWVkNCIsIkVtcGxveWVlQ29kZSI6IjAwNSIsIk5hbWUiOiJFdWRlcyIsIkNyZWF0ZWRCeSI6IjgzMDZhYzUzLTEwNmYtNDMwNy05MGJiLTk2MWZhMWU3MjU5MSIsIm5iZiI6MTY3MzAwOTY3MywiZXhwIjoxNjczMDExNDczLCJpYXQiOjE2NzMwMDk2NzMsImlzcyI6IklXYW50QXBwSXNzdWVyIiwiYXVkIjoiQXVkaWVuY2UifQ.CDgjv4JoSwDTorCHC0UjRZt-oIHxRcbwn-97KJUPGqk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/categories",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getproducts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV1ZGVzQGdtYWlsLmNvbSIsIm5hbWVpZCI6IjA3MDBlYTllLTVmYzAtNDRiOS1iMzEwLTliMDQzMjQ5NWVkNCIsIkVtcGxveWVlQ29kZSI6IjAwNSIsIk5hbWUiOiJFdWRlcyIsIkNyZWF0ZWRCeSI6IjgzMDZhYzUzLTEwNmYtNDMwNy05MGJiLTk2MWZhMWU3MjU5MSIsIm5iZiI6MTY3MzAwOTY3MywiZXhwIjoxNjczMDExNDczLCJpYXQiOjE2NzMwMDk2NzMsImlzcyI6IklXYW50QXBwSXNzdWVyIiwiYXVkIjoiQXVkaWVuY2UifQ.CDgjv4JoSwDTorCHC0UjRZt-oIHxRcbwn-97KJUPGqk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get/products/showcase",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV1ZGVzQGdtYWlsLmNvbSIsIm5hbWVpZCI6IjA3MDBlYTllLTVmYzAtNDRiOS1iMzEwLTliMDQzMjQ5NWVkNCIsIkVtcGxveWVlQ29kZSI6IjAwNSIsIk5hbWUiOiJFdWRlcyIsIkNyZWF0ZWRCeSI6IjgzMDZhYzUzLTEwNmYtNDMwNy05MGJiLTk2MWZhMWU3MjU5MSIsIm5iZiI6MTY3MzAxNTQwNSwiZXhwIjoxNzA0NTUxNDA1LCJpYXQiOjE2NzMwMTU0MDUsImlzcyI6IklXYW50QXBwSXNzdWVyIiwiYXVkIjoiQXVkaWVuY2UifQ.I1ccuH31jbQVl7yfNiB1yVFQbDsBkN-oM4SoYl9uUsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5120/products/showcase",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"products",
+						"showcase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get clients",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvbWFyaW9AZ21haWwuY29tIiwibmFtZWlkIjoiZjc5YzBkODItOWM3My00ZjU4LWE3NTQtMTZjOGM3ZDA5NjdhIiwiQ3BmIjoiNTYxNDE1NjU1IiwiTmFtZSI6IlJvbWFyaW8iLCJuYmYiOjE2NzMwMzA0NTksImV4cCI6MTcwNDU2NjQ1OSwiaWF0IjoxNjczMDMwNDU5LCJpc3MiOiJJV2FudEFwcElzc3VlciIsImF1ZCI6IkF1ZGllbmNlIn0.Ccc9N-isr07ZVttRFuHbOuklcYdWyncZL1-WGPp5Z3o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5120/clients",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvbWFyaW9AZ21haWwuY29tIiwibmFtZWlkIjoiZjc5YzBkODItOWM3My00ZjU4LWE3NTQtMTZjOGM3ZDA5NjdhIiwiQ3BmIjoiNTYxNDE1NjU1IiwiTmFtZSI6IlJvbWFyaW8iLCJuYmYiOjE2NzMwMzA0NTksImV4cCI6MTcwNDU2NjQ1OSwiaWF0IjoxNjczMDMwNDU5LCJpc3MiOiJJV2FudEFwcElzc3VlciIsImF1ZCI6IkF1ZGllbmNlIn0.Ccc9N-isr07ZVttRFuHbOuklcYdWyncZL1-WGPp5Z3o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5120/clients",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BestSeller",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvbWFyaW9AZ21haWwuY29tIiwibmFtZWlkIjoiZjc5YzBkODItOWM3My00ZjU4LWE3NTQtMTZjOGM3ZDA5NjdhIiwiQ3BmIjoiNTYxNDE1NjU1IiwiTmFtZSI6IlJvbWFyaW8iLCJuYmYiOjE2NzMwMzA0NTksImV4cCI6MTcwNDU2NjQ1OSwiaWF0IjoxNjczMDMwNDU5LCJpc3MiOiJJV2FudEFwcElzc3VlciIsImF1ZCI6IkF1ZGllbmNlIn0.Ccc9N-isr07ZVttRFuHbOuklcYdWyncZL1-WGPp5Z3o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5120/clients",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5120",
+					"path": [
+						"clients"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
